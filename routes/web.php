@@ -20,3 +20,19 @@ Route::get('/', function () {
 Route::get('app/{params?}', function () {
     return view('index');
 })->where('params', '[\/\w\.-]*');
+
+// Static assets workaround on Vite
+// https://github.com/innocenzi/laravel-vite/issues/31#issuecomment-874577953
+Route::fallback(function ($path) {
+    if(app()->environment('local') && (str_starts_with($path, 'resources') || str_starts_with($path, 'node_modules'))) {
+        try {
+            Http::get(env('VITE_URL'));
+            return redirect( env('VITE_URL') . '/' . $path);
+        }
+        catch (ConnectionException $exception) {
+            abort(404);
+        }
+    }
+    else
+        abort(404);
+});
