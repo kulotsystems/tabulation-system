@@ -32,16 +32,16 @@ I will be using **[Vite](https://vitejs.dev/)** during development.
     php artisan serve
     ```
    
-   *___d___. Run or build frontend in different terminal session:*
+   *___d___. Build or run frontend in different terminal session:*
+   
+    *Build assets for production: **(required during first run)***
+    ```composer log
+    npm run prod
+    ```
  
     *Run while in development:*
     ```composer log
     npm run dev
     ```
     
-    *Build assets for production:*
-    ```composer log
-    npm run prod
-    ```
-   
 4. Access <http://localhost:8000> on your browser.
