@@ -10,6 +10,11 @@ const routes = [
         path: '/about',
         name: 'about',
         component: () => import('../../views/About.vue')
+    },
+    {
+        path: '/admin',
+        name: 'admin-sign-in',
+        component: () => import('../../views/Admin/AdminSignIn.vue')
     }
 ];
 

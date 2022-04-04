@@ -39,8 +39,9 @@
         data() {
             return {
                 items: [
-                    { text: 'Home' , icon: 'mdi-home', route: { name: 'home'  } },
-                    { text: 'About', icon: 'mdi-help', route: { name: 'about' } },
+                    { text: 'Home' , icon: 'mdi-home'   , route: { name: 'home'  } },
+                    { text: 'About', icon: 'mdi-help'   , route: { name: 'about' } },
+                    { text: 'Admin', icon: 'mdi-account', route: { name: 'admin-sign-in' } },
                 ],
                 drawer: {
                     opened: false
