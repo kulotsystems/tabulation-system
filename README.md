@@ -39,12 +39,17 @@ I will be using **[Vite](https://vitejs.dev/)** during development.
     php artisan migrate
     ```
    
-    *___e___. Spin a local dev server:*
+    *___e___. Populate database tables with data:*
+    ```composer log
+    php artisan db:seed
+    ```
+   
+    *___f___. Spin a local dev server:*
     ```composer log
     php artisan serve
     ```
    
-   *___f___. Build or run frontend in different terminal session:*
+   *___g___. Build or run frontend in different terminal session:*
    
     *Build assets for production: **(required during first run)***
     ```composer log
