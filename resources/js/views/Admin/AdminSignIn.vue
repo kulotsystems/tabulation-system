@@ -43,6 +43,8 @@
 </template>
 
 <script>
+    import api_auth from '../../api/api-auth.js';
+
     export default {
         name: 'AdminSignIn',
         components: {},
@@ -52,7 +54,15 @@
         computed: {},
         methods : {
             signIn() {
-                alert('COMING SOON...');
+                api_auth.test().then(response => {
+                    if(!response) return
+
+                    if(response.data.test) {
+                        alert(`RESPONSE: ${response.data.test}`);
+                    }
+                }).catch(errors => {
+                    console.log('ERRORS: ', errors);
+                });
             }
         }
     }
