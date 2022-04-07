@@ -61,4 +61,8 @@ I will be using **[Vite](https://vitejs.dev/)** during development.
     npm run dev
     ```
     
-4. Access <http://localhost:8000> on your browser.
+4. Access <http://localhost:8000> on your browser.   
+   ```
+   Username: kulotsystems
+   Password: test
+   ```

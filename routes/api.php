@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\SignInController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,9 +16,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::group(['prefix' => 'auth'], function() {
-    Route::get('test', function() {
-        return response([
-            'test' => 'OK!'
-        ]);
+    Route::group(['prefix' => 'sign-in'], function() {
+        Route::post('/'   , [SignInController::class, 'sign_in']);
+        Route::get('/user', [SignInController::class, 'get_user']);
+    });
+
+    Route::group(['prefix' => 'sign-out'], function() {
+        Route::delete('/', [SignInController::class, 'sign_out']);
     });
 });
