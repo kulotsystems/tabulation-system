@@ -42,6 +42,8 @@
                     { text: 'Home' , icon: 'mdi-home'   , route: { name: 'home'  } },
                     { text: 'About', icon: 'mdi-help'   , route: { name: 'about' } },
                     { text: 'Admin', icon: 'mdi-account', route: { name: 'admin-sign-in' } },
+                    { text: 'Judges'    , icon: 'mdi-account-multiple', route: { name: 'admin-judges' } },
+                    { text: 'Candidates', icon: 'mdi-account-multiple', route: { name: 'admin-candidates' } },
                 ],
                 drawer: {
                     opened: false

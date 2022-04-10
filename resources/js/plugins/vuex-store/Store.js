@@ -1,7 +1,8 @@
 import { createStore } from 'vuex';
 
 // --- MODULES ------------------------------------------------------------
-import dialog   from './modules/store-dialog.js';
+import auth   from './modules/store-auth.js';
+import dialog from './modules/store-dialog.js';
 
 const store = createStore({
     state: {
@@ -21,6 +22,7 @@ const store = createStore({
     },
 
     modules: {
+        auth,
         dialog
     }
 });
