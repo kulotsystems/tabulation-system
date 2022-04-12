@@ -6,7 +6,7 @@
             <!-- Provides the application the proper gutter -->
             <v-container>
 
-                <router-view @signIn="signIn" @signOut="signOut" @getUser="getUser"></router-view>
+                <router-view v-if="this.$store.getters['auth/loaded']" @signIn="signIn" @signOut="signOut" @getUser="getUser"></router-view>
 
             </v-container>
         </v-main>
@@ -42,7 +42,7 @@
                         title += to.meta.title;
                     }
                     document.title = title;
-                    this.enforceRouteRules();
+                    this.getUser();
                 }
             }
         },

@@ -30,23 +30,42 @@ const routes = [
         }
     },
     {
-        path: '/admin/judges',
-        name: 'admin-judges',
-        component: () => import('../../views/Admin/Judges.vue'),
+        path: '/admin/events/add',
+        name: 'admin-events-add',
+        component: () => import('../../views/Admin/Event/EventAdd.vue'),
         meta: {
             rules: rules.user,
-            title: 'Judges'
+            title: 'Add Event'
         }
     },
     {
-        path: '/admin/candidates',
-        name: 'admin-candidates',
-        component: () => import('../../views/Admin/Candidates.vue'),
+        path: '/admin/:event/judges/add',
+        name: 'admin-judges-add',
+        component: () => import('../../views/Admin/Judge/JudgeAdd.vue'),
         meta: {
             rules: rules.user,
-            title: 'Candidates'
+            title: 'Add Judge'
         }
-    }
+    },
+    {
+        path: '/admin/:event/candidates/add',
+        name: 'admin-candidates-add',
+        component: () => import('../../views/Admin/Candidate/CandidateAdd.vue'),
+        meta: {
+            rules: rules.user,
+            title: 'Add Candidate'
+        }
+    },
+    {
+        path: '/admin/:event/portions/add',
+        name: 'admin-portions-add',
+        component: () => import('../../views/Admin/Portion/PortionAdd.vue'),
+        meta: {
+            rules: rules.user,
+            title: 'Add Portion'
+        }
+    },
+
 ];
 
 const router = createRouter({

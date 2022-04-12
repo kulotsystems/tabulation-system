@@ -1,5 +1,5 @@
 <template>
-    <v-navigation-drawer v-model="drawer.opened" app >
+    <v-navigation-drawer v-model="drawer.opened" app>
         <v-toolbar class="primary lighten-2">
             <v-app-bar-nav-icon v-on:click="drawer.opened = false" v-show="drawer.opened">
                 <v-icon>mdi_home</v-icon>
@@ -42,8 +42,6 @@
                     { text: 'Home' , icon: 'mdi-home'   , route: { name: 'home'  } },
                     { text: 'About', icon: 'mdi-help'   , route: { name: 'about' } },
                     { text: 'Admin', icon: 'mdi-account', route: { name: 'admin-sign-in' } },
-                    { text: 'Judges'    , icon: 'mdi-account-multiple', route: { name: 'admin-judges' } },
-                    { text: 'Candidates', icon: 'mdi-account-multiple', route: { name: 'admin-candidates' } },
                 ],
                 drawer: {
                     opened: false
