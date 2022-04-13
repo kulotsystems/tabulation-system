@@ -5,18 +5,29 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Models\Portion;
+use App\Models\Event;
 
 class PortionController extends Controller
 {
     /****************************************************************************************************
      * Display a listing of the resource.
      *
+     * @param Request $request
      * @return Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        $request->validate([
+            'event' => 'numeric|required'
+        ]);
+
+        $portions = [];
+        if($event = Event::find($request['event'])) {
+            $portions = $event->portions;
+        }
+
         return response([
-            'portions' => Portion::all()
+            'portions' => $portions
         ]);
     }
 

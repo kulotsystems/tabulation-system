@@ -20,6 +20,7 @@ const routes = [
             title: 'About'
         }
     },
+
     {
         path: '/admin',
         name: 'admin-sign-in',
@@ -27,6 +28,15 @@ const routes = [
         meta: {
             rules: rules.anyone,
             title: 'Sign In'
+        }
+    },
+    {
+        path: '/admin/events',
+        name: 'admin-events-list',
+        component: () => import('../../views/Admin/Event/EventList.vue'),
+        meta: {
+            rules: rules.user,
+            title: 'Events'
         }
     },
     {
@@ -39,12 +49,41 @@ const routes = [
         }
     },
     {
+        path: '/admin/:event',
+        name: 'admin-events-show',
+        component: () => import('../../views/Admin/Event/EventShow.vue'),
+        meta: {
+            rules: rules.user,
+            title: 'Event'
+        }
+    },
+
+    {
+        path: '/admin/:event/judges',
+        name: 'admin-judges-list',
+        component: () => import('../../views/Admin/Judge/JudgeList.vue'),
+        meta: {
+            rules: rules.user,
+            title: 'Judges'
+        }
+    },
+    {
         path: '/admin/:event/judges/add',
         name: 'admin-judges-add',
         component: () => import('../../views/Admin/Judge/JudgeAdd.vue'),
         meta: {
             rules: rules.user,
             title: 'Add Judge'
+        }
+    },
+
+    {
+        path: '/admin/:event/candidates',
+        name: 'admin-candidates-list',
+        component: () => import('../../views/Admin/Candidate/CandidateList.vue'),
+        meta: {
+            rules: rules.user,
+            title: 'Candidates'
         }
     },
     {
@@ -54,6 +93,16 @@ const routes = [
         meta: {
             rules: rules.user,
             title: 'Add Candidate'
+        }
+    },
+
+    {
+        path: '/admin/:event/portions',
+        name: 'admin-portions-list',
+        component: () => import('../../views/Admin/Portion/PortionList.vue'),
+        meta: {
+            rules: rules.user,
+            title: 'Portions'
         }
     },
     {

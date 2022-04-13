@@ -45,7 +45,6 @@
                         <pre>{{ this.$store.getters['auth/user'] }}</pre>
                         <br>
                         <v-btn
-                            type="submit"
                             color="error"
                             rounded
                             size="large"
@@ -53,15 +52,17 @@
                         >
                             SIGN OUT
                         </v-btn>
-                        <br>
-                        <br>
-                        <h3>INSERT ENTITIES</h3>
-                        <ol>
-                            <li><router-link :to="{ name: 'admin-events-add' }">Add one event (ID: 1).</router-link></li>
-                            <li><router-link :to="{ name: 'admin-judges-add', params: { event: 1 } }">Add Judge to Event 1.</router-link></li>
-                            <li><router-link :to="{ name: 'admin-candidates-add', params: { event: 1 } }">Add Candidate to Event 1.</router-link></li>
-                            <li><router-link :to="{ name: 'admin-portions-add', params: { event: 1 } }">Add Portion to Event 1.</router-link></li>
-                        </ol>
+
+                        <v-btn
+                            color="primary"
+                            rounded
+                            size="large"
+                            exact
+                            router
+                            :to="{ name: 'admin-events-list' }"
+                        >
+                            EVENTS
+                        </v-btn>
                     </div>
                 </v-col>
             </v-row>

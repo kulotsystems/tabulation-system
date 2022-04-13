@@ -5,18 +5,29 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Models\Candidate;
+use App\Models\Event;
 
 class CandidateController extends Controller
 {
     /****************************************************************************************************
      * Display a listing of the resource.
      *
+     * @param Request $request
      * @return Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        $request->validate([
+            'event' => 'numeric|required'
+        ]);
+
+        $candidates = [];
+        if($event = Event::find($request['event'])) {
+            $candidates = $event->candidates;
+        }
+
         return response([
-            'candidates' => Candidate::all()
+            'candidates' => $candidates
         ]);
     }
 

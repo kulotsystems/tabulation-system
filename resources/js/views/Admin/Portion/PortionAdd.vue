@@ -48,7 +48,7 @@
 
                     if(response.data.portion) {
                         const portion = response.data.portion;
-                        alert(`Portion [${portion.id}] Added!`);
+                        this.$router.replace({ name: 'admin-portions-list', params: { event: this.$route.params.event } });
                     }
                 }).catch(errors => {
                     console.log('ERRORS: ', errors);

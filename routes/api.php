@@ -33,7 +33,7 @@ Route::group(['prefix' => 'auth'], function() {
 });
 
 
-//Route::middleware(['auth:sanctum'])->group(function() {
+Route::middleware(['auth:sanctum'])->group(function() {
 
     Route::group(['prefix' => 'event'], function() {
         Route::get   ('/'    , [EventController::class, 'index']);
@@ -67,5 +67,5 @@ Route::group(['prefix' => 'auth'], function() {
         Route::delete('/{id}', [PortionController::class, 'destroy'])->where('id', '[0-9]+');
     });
 
-//});
+});
 

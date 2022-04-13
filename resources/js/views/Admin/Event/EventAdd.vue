@@ -45,7 +45,7 @@
 
                     if(response.data.event) {
                         const event = response.data.event;
-                        alert(`Event [${event.id}] Added!`);
+                        this.$router.replace({ name: 'admin-events-list' })
                     }
                 }).catch(errors => {
                     console.log('ERRORS: ', errors);

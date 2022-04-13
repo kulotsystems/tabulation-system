@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Hash;
+use App\Models\Event;
 use App\Models\Judge;
 
 class JudgeController extends Controller
@@ -12,12 +13,22 @@ class JudgeController extends Controller
     /****************************************************************************************************
      * Display a listing of the resource.
      *
+     * @param Request $request
      * @return Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        $request->validate([
+            'event' => 'numeric|required'
+        ]);
+
+        $judges = [];
+        if($event = Event::find($request['event'])) {
+            $judges = $event->judges;
+        }
+
         return response([
-            'judges' => Judge::all()
+            'judges' => $judges
         ]);
     }
 

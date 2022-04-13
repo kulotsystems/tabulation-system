@@ -49,7 +49,7 @@
 
                     if(response.data.candidate) {
                         const candidate = response.data.candidate;
-                        alert(`Candidate [${candidate.id}] Added!`);
+                        this.$router.replace({ name: 'admin-candidates-list', params: { event: this.$route.params.event } });
                     }
                 }).catch(errors => {
                     console.log('ERRORS: ', errors);

@@ -60,7 +60,7 @@
 
                     if(response.data.judge) {
                         const judge = response.data.judge;
-                        alert(`Judge [${judge.id}] Added!`);
+                        this.$router.replace({ name: 'admin-judges-list', params: { event: this.$route.params.event } });
                     }
                 }).catch(errors => {
                     console.log('ERRORS: ', errors);
