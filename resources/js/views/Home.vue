@@ -1,6 +1,5 @@
 <template>
     <div>
-        <dialogs/>
         <h1>HOME</h1>
         <p>This is the home page.</p>
 
@@ -15,13 +14,9 @@
 </template>
 
 <script>
-    import { defineAsyncComponent } from 'vue';
-
     export default {
         name: 'Home',
-        components: {
-            'dialogs': defineAsyncComponent(() => import('../components/dialogs/Dialogs.vue'))
-        },
+        components: {},
         data() {
             return {}
         },

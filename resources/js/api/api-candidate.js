@@ -9,6 +9,10 @@ export default {
 
     store(request) {
         return api.post(url, request);
+    },
+
+    destroy(id) {
+        return api.delete(`${url}/${id}`);
     }
 
 }

@@ -11,6 +11,7 @@
             </v-card-text>
             <v-card-actions>
                 <v-spacer></v-spacer>
+                <v-btn color="error" @click="deleteEvent(index)">Delete</v-btn>
                 <v-btn color="primary" exact router :to="{ name: 'admin-events-show', params: { event: event.id } }">PROCEED</v-btn>
             </v-card-actions>
         </v-card>
@@ -20,6 +21,7 @@
 
 <script>
     import apiEvent from '../../../api/api-event.js';
+    import apiPortion from '../../../api/api-portion.js';
 
     export default {
         name: 'EventList',
@@ -49,6 +51,33 @@
                     }
                 }).catch(errors => {
                     console.log('ERRORS: ', errors);
+                });
+            },
+
+            // METHOD :: DELETE EVENT
+            deleteEvent(index) {
+                let event = this.config.events[index];
+                this.$store.commit('dialog/confirm/show', {
+                    title : 'Delete Event',
+                    prompt: `Do you really want to delete event [${index + 1}] ?`,
+                    yesCallback: {
+                        async: true,
+                        action: () => {
+                            apiEvent.destroy(event.id).then(response => {
+                                if(!response) return;
+
+                                this.$store.commit('dialog/confirm/hide');
+                                if(response.data.deleted) {
+                                    if(response.data.deleted.id === event.id) {
+                                        this.config.events.splice(index, 1);
+                                    }
+                                }
+                            }).catch(errors => {
+                                console.log('ERRORS: ', errors);
+                                this.$store.commit('dialog/confirm/errors', errors);
+                            });
+                        }
+                    }
                 });
             }
         },

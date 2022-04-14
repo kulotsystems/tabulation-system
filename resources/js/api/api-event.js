@@ -13,6 +13,10 @@ export default {
 
     show(eventID) {
         return api.get(`${url}/${eventID}`);
+    },
+
+    destroy(id) {
+        return api.delete(`${url}/${id}`);
     }
 
 }

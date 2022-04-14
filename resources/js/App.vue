@@ -1,5 +1,6 @@
 <template>
     <v-app>
+        <dialogs/>
         <nav-sample></nav-sample>
 
         <v-main>
@@ -24,6 +25,7 @@
     export default {
         name: 'App',
         components: {
+            'dialogs'   : defineAsyncComponent(() => import('./components/dialogs/Dialogs.vue')),
             'nav-sample': defineAsyncComponent(() => import('./components/navs/NavSample.vue'))
         },
         data() {
